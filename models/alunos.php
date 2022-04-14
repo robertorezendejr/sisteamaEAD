@@ -1,7 +1,7 @@
 <?php
 class Alunos extends model {
 
-	// private $info;
+	private $info;
 
 	public function isLogged() {
 		if(isset($_SESSION['lgaluno']) && !empty($_SESSION['lgaluno'])) {
@@ -28,35 +28,35 @@ class Alunos extends model {
 
 	}
 
-	// public function isInscrito($id_curso) {
-	// 	$sql = "SELECT * FROM aluno_curso WHERE id_aluno = '".($this->info['id'])."' AND id_curso = '$id_curso'";
-	// 	$sql = $this->db->query($sql);
+	public function isInscrito($id_curso) {
+		$sql = "SELECT * FROM aluno_curso WHERE id_aluno = '".($this->info['id'])."' AND id_curso = '$id_curso'";
+		$sql = $this->db->query($sql);
 
-	// 	if($sql->rowCount() > 0) {
-	// 		return true;
-	// 	} else {
-	// 		return false;
-	// 	}
-	// }
+		if($sql->rowCount() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-	// public function setAluno($id) {
+	public function setAluno($id) {
 
-	// 	$sql = "SELECT * FROM alunos WHERE id = '$id'";
-	// 	$sql = $this->db->query($sql);
+		$sql = "SELECT * FROM alunos WHERE id = '$id'";
+		$sql = $this->db->query($sql);
 
-	// 	if($sql->rowCount() > 0) {
-	// 		$this->info = $sql->fetch();
-	// 	}
+		if($sql->rowCount() > 0) {
+			$this->info = $sql->fetch();
+		}
 
-	// }
+	}
 
-	// public function getNome() {
-	// 	return $this->info['nome'];
-	// }
+	public function getNome() {
+		return $this->info['nome'];
+	}
 
-	// public function getId() {
-	// 	return $this->info['id'];
-	// }
+	public function getId() {
+		return $this->info['id'];
+	}
 
 	// public function getNumAulasAssistidas($id_curso) {
 	// 	$sql = "

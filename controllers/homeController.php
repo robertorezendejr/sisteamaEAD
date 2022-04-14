@@ -11,17 +11,17 @@ class homeController extends controller {
 	}
 	
 	public function index() {
-		$dados = array(/* 
+		$dados = array(
 			'info' => array(),
 			'cursos' => array()
-		 */);
+		);
 
-		// $alunos = new Alunos();
-		// $alunos->setAluno($_SESSION['lgaluno']);
-		// $dados['info'] = $alunos;
+		$alunos = new Alunos();
+		$alunos->setAluno($_SESSION['lgaluno']);
+		$dados['info'] = $alunos;
 
-		// $cursos = new Cursos();
-		// $dados['cursos'] = $cursos->getCursosDoAluno($alunos->getId());
+		$cursos = new Cursos();
+		$dados['cursos'] = $cursos->getCursosDoAluno($alunos->getId());
 		
 		$this->loadTemplate('home', $dados);
 	}
